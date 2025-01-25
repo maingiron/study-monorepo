@@ -1,16 +1,16 @@
-import TerminalUtil from '@/util/terminal-util';
-import { terminal } from 'terminal-kit';
+import TerminalUtil from '@/app/util/terminal-util';
+import polimorfismo from '../fundamentos/polimorfismo';
 
 export default async function menuFundamentos() {
   TerminalUtil.title('Fundamentos');
 
-  const returned = await terminal.singleColumnMenu([
-    '1. Poliformismo',
-    'Voltar',
-  ]).promise;
+  const [indice] = await TerminalUtil.menu(['1. Poliformismo', 'Voltar']);
 
-  switch (returned.selectedIndex) {
-    default:
+  switch (indice) {
+    case 0:
+      await polimorfismo();
+      break;
+    case 1:
       return;
   }
 
