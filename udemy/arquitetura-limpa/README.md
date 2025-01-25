@@ -2,6 +2,8 @@
 
 Bem-vindo ao repositório do curso de **Arquitetura Limpa + Hexagonal**! Este repositório contém os códigos e exemplos práticos utilizados ao longo do curso, que tem como objetivo fornecer uma visão abrangente das melhores práticas de arquitetura de software para projetos modernos.
 
+Link do curso: https://www.udemy.com/course/arquitetura-limpa-e-hexagonal
+
 ## Objetivo do Curso
 
 O curso aborda duas abordagens fundamentais de arquitetura de software:
