@@ -1,0 +1,60 @@
+html {
+  background: url(../i/background.png) repeat;
+}
+
+canvas {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 21px 1px rgba(173,173,173,1);
+  -moz-box-shadow: 0px 0px 21px 1px rgba(173,173,173,1);
+  box-shadow: 0px 0px 21px 1px rgba(173,173,173,1);
+}
+
+.description {
+  position: absolute;
+  top: 7%;
+  left: 1.7%;
+  width: 23%;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 21px 1px rgba(173,173,173,1);
+  -moz-box-shadow: 0px 0px 21px 1px rgba(173,173,173,1);
+  box-shadow: 0px 0px 21px 1px rgba(173,173,173,1);
+  font-family: 'Raleway', sans-serif;
+  color: #f2f2f2;
+  background-color: #34a853;
+
+    /* Disable text selection highlighting */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome and Opera */
+}
+
+.description-welcome {
+  border-bottom: 2px solid #f2f2f2;
+}
+h1 {
+  text-align: center;
+}
+
+.description a {
+  width: 100%;
+  padding-top: 15px;
+  text-align: center;
+  float: right;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 20px;
+}
+.description a:hover {
+  color: #ef615c;
+}
