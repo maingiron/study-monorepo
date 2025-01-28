@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp({
-    apiKey: "AIzaSyBIhYl2WZKchbkZq95yx02s-SnW_hIY4tI",
+    // apiKey: "senha-secreta",
     authDomain: "curso-firebase-webapps.firebaseapp.com",
     databaseURL: "https://curso-firebase-webapps.firebaseio.com",
     projectId: "curso-firebase-webapps",
