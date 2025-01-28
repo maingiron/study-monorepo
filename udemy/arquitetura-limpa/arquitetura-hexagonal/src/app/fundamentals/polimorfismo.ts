@@ -1,7 +1,7 @@
-import ICar from '@/core/fundamentos/car.interface';
+import ICar from '@/core/fundamentals/car.interface';
 import TerminalUtil from '../util/terminal-util';
-import Ferrari from '@/core/fundamentos/ferrari';
-import Fusca from '@/core/fundamentos/fusca';
+import Ferrari from '@/core/fundamentals/ferrari';
+import Fusca from '@/core/fundamentals/fusca';
 
 export default async function polimorfismo() {
   TerminalUtil.title('Polimorfismo');

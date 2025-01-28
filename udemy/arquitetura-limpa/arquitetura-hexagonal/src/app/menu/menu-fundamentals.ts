@@ -1,7 +1,7 @@
 import TerminalUtil from '@/app/util/terminal-util';
-import polimorfismo from '../fundamentos/polimorfismo';
+import polimorfismo from '../fundamentals/polimorfismo';
 
-export default async function menuFundamentos() {
+export default async function menuFundamentals() {
   TerminalUtil.title('Fundamentos');
 
   const [indice] = await TerminalUtil.menu(['1. Poliformismo', 'Voltar']);
@@ -14,5 +14,5 @@ export default async function menuFundamentos() {
       return;
   }
 
-  await menuFundamentos();
+  await menuFundamentals();
 }
