@@ -1,0 +1,5 @@
+Arquitetura hexagonal === Porta e adaptadores
+
+
+Nome Design: Porta e adaptadores
+Nome comercial: Arquitetura hexagonal

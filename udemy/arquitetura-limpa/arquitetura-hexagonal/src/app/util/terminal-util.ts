@@ -25,6 +25,10 @@ export default class TerminalUtil {
     terminal.clear();
   }
 
+  static showKeyValue(key: string, value: string) {
+    terminal.yellow(key).green(value).white('\n');
+  }
+
   static async confirm(text: string): Promise<boolean> {
     terminal.yellow(`\n${text} (Sim/Não): `);
     const result = await terminal.singleColumnMenu(['Sim', 'Não']).promise;
