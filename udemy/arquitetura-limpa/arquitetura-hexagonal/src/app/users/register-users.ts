@@ -19,6 +19,7 @@ export default async function registerUsers() {
 
   try {
     await new RegisterUserService().execute(user);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     TerminalUtil.errorMessage(e.message);
   } finally {
