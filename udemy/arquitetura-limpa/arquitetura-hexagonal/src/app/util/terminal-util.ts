@@ -7,6 +7,24 @@ export default class TerminalUtil {
     terminal.magenta(`-`.repeat(text.length) + '\n');
   }
 
+  static async requiredField(
+    label: string,
+    deafultValue: string = '',
+  ): Promise<string> {
+    terminal.yellow(`\n${label}: `);
+
+    const value: string | undefined = await terminal.inputField({
+      default: deafultValue,
+    }).promise;
+
+    if (value) {
+      return value;
+    } else {
+      terminal.red('Campo obrigatório!');
+      return await this.requiredField(label, deafultValue);
+    }
+  }
+
   static async menu(options: string[]): Promise<[number, string]> {
     const returned = await terminal.singleColumnMenu(options).promise;
     return [returned.selectedIndex, returned.selectedText];
@@ -38,5 +56,19 @@ export default class TerminalUtil {
   static async waitEnter(): Promise<void> {
     terminal.white('\nPressione ENTER para continuar...');
     await terminal.inputField({ echo: false }).promise;
+  }
+
+  static async sucessMessage(
+    text: string,
+    breakLine: boolean = true,
+  ): Promise<void> {
+    terminal.green((breakLine ? `\n` : '') + text);
+  }
+
+  static async errorMessage(
+    text: string,
+    breakLine: boolean = true,
+  ): Promise<void> {
+    terminal.red((breakLine ? `\n` : '') + text);
   }
 }
