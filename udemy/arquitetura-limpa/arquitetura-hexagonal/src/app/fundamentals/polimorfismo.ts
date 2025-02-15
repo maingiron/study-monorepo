@@ -4,26 +4,25 @@ import Ferrari from '@/core/fundamentals/ferrari';
 import Fusca from '@/core/fundamentals/fusca';
 
 export default async function polimorfismo() {
-  TerminalUtil.title('Polimorfismo');
+  const { title, selection, clear, showKeyValue, confirm } = TerminalUtil;
 
-  const [typeCar] = await TerminalUtil.selection(
-    'Selecione um tipo de carro:',
-    ['Ferrari', 'Fusca'],
-  );
+  title('Polimorfismo');
+
+  const [typeCar] = await selection('Selecione um tipo de carro:', [
+    'Ferrari',
+    'Fusca',
+  ]);
 
   const car: ICar = typeCar === 0 ? new Ferrari() : new Fusca();
 
   while (true) {
-    TerminalUtil.clear();
+    clear();
 
-    TerminalUtil.showKeyValue(
-      'Velocidade Máxima: ',
-      `${car.maximumSpeed} km/h`,
-    );
+    showKeyValue('Velocidade Máxima: ', `${car.maximumSpeed} km/h`);
 
-    TerminalUtil.showKeyValue('Velocidade Atual: ', `${car.currentSpeed} km/h`);
+    showKeyValue('Velocidade Atual: ', `${car.currentSpeed} km/h`);
 
-    const [options] = await TerminalUtil.selection('Escolha uma opção:', [
+    const [options] = await selection('Escolha uma opção:', [
       'Acelerar',
       'Frear',
     ]);

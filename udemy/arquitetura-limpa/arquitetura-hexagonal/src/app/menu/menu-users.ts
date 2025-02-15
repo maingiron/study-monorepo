@@ -2,9 +2,11 @@ import TerminalUtil from '@/app/util/terminal-util';
 import registerUsers from '../users/register-users';
 
 export default async function menuUsers() {
-  TerminalUtil.title('Usuários');
+  const { title, menu } = TerminalUtil;
 
-  const [indice] = await TerminalUtil.menu(['1. Registrar Usuário', 'Voltar']);
+  title('Usuários');
+
+  const [indice] = await menu(['1. Registrar Usuário', 'Voltar']);
 
   switch (indice) {
     case 0:

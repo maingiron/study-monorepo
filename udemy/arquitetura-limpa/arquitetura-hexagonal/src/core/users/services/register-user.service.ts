@@ -1,16 +1,20 @@
 import IUseCase from '@/core/shared/use-case.inteface';
-import IUser from '../models/user.interface';
-import RepositoryUsersMemory from './repository-users-memory';
 import Errors from '@/core/shared/errors.enum';
 import Id from '@/core/shared/id';
+import IUser from '../models/user.interface';
+import RepositoryUserPort from '../port/repository-user.port';
+import ProviderPasswordCryptoPort from '../port/provider-password-crypto.port';
 
 export default class RegisterUserService implements IUseCase<IUser, void> {
+  constructor(
+    private repo: RepositoryUserPort,
+    private provider: ProviderPasswordCryptoPort,
+  ) {}
+
   async execute(user: IUser): Promise<void> {
-    const criptoPassword = user.password.split('').reverse().join('');
+    const criptoPassword = await this.provider.encrypt(user.password);
 
-    const repo = new RepositoryUsersMemory();
-
-    const userExists = await repo.findByEmail(user.email);
+    const userExists = await this.repo.findByEmail(user.email);
 
     if (userExists) {
       throw new Error(Errors.USER_ALREADY_EXISTS);
@@ -23,7 +27,7 @@ export default class RegisterUserService implements IUseCase<IUser, void> {
       password: criptoPassword,
     };
 
-    repo.insert(newUser);
+    this.repo.insert(newUser);
 
     console.log(`\n\n${JSON.stringify(newUser)}\n\n`);
   }

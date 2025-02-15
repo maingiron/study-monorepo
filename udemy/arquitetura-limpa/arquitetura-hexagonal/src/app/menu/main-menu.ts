@@ -3,10 +3,12 @@ import menuFundamentals from './menu-fundamentals';
 import menuUsers from './menu-users';
 
 export default async function mainMenu() {
-  TerminalUtil.title('Menu Principal');
+  const { title, menu } = TerminalUtil;
 
-  const [indice] = await TerminalUtil.menu([
-    '1. Fundamentos',
+  title('Menu Principal');
+
+  const [indice] = await menu([
+    '1. Menu Fundamentos',
     '2. Menu Usuários',
     'Sair',
   ]);

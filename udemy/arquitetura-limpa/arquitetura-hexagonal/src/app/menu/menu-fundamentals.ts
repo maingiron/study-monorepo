@@ -3,9 +3,11 @@ import polimorfismo from '../fundamentals/polimorfismo';
 import dip from '../fundamentals/dip';
 
 export default async function menuFundamentals() {
-  TerminalUtil.title('Fundamentos');
+  const { title, menu } = TerminalUtil;
 
-  const [indice] = await TerminalUtil.menu([
+  title('Fundamentos');
+
+  const [indice] = await menu([
     '1. Polimorfismo',
     '2. DIP - Dependency Inversion Principle',
     'Voltar',

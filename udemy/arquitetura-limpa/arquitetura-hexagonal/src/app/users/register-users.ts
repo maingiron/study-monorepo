@@ -1,28 +1,40 @@
 import IUser from '@/core/users/models/user.interface';
 import TerminalUtil from '../util/terminal-util';
 import RegisterUserService from '@/core/users/services/register-user.service';
+import BcrypyPasswordAdapter from '@/adapter/auth/bcrypy-password.adapter';
+import RepositoryMemoryAdapter from '@/adapter/db/repository-memory.adapter';
 
 export default async function registerUsers() {
-  TerminalUtil.title('Registrar Usuário');
+  const { title, requiredField, sucess, waitEnter, error } = TerminalUtil;
 
-  const name = await TerminalUtil.requiredField('Nome', 'Raphael Giron');
-  const email = await TerminalUtil.requiredField('E-mail', 'giron@email.com');
-  const password = await TerminalUtil.requiredField('Senha', 'abcd1234');
+  title('Registrar Usuário');
+
+  const name = await requiredField('Nome', 'Raphael Giron');
+  const email = await requiredField('E-mail', 'giron@email.com');
+  const password = await requiredField('Senha', 'abcd1234');
 
   const user: IUser = { name, email, password };
 
-  await new RegisterUserService().execute(user);
-
-  TerminalUtil.sucessMessage('Usuário registrado com sucesso!');
-
-  await TerminalUtil.waitEnter();
-
   try {
-    await new RegisterUserService().execute(user);
+    const repo = new RepositoryMemoryAdapter();
+
+    // const providerPassword = new ReversePasswordAdapter();
+    // const providerPassword = new SpaceReversePasswordAdapter();
+    const providerPassword = new BcrypyPasswordAdapter();
+
+    const useCase = new RegisterUserService(repo, providerPassword);
+
+    await useCase.execute(user);
+
+    sucess('Usuário registrado com sucesso!');
+
+    await waitEnter();
+
+    await useCase.execute(user);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
-    TerminalUtil.errorMessage(e.message);
+    error(e.message);
   } finally {
-    await TerminalUtil.waitEnter();
+    await waitEnter();
   }
 }

@@ -1,5 +1,7 @@
+import { v4 as uuid } from 'uuid';
+
 export default class Id {
   static generate(): string {
-    return Math.random().toString(36).substr(2, 9);
+    return uuid();
   }
 }

@@ -1,10 +1,10 @@
-import IUser from '../models/user.interface';
+import IUser from '@/core/users/models/user.interface';
 
-export default class RepositoryUsersMemory {
+export default class RepositoryMemoryAdapter {
   private static readonly items: IUser[] = [];
 
   async insert(user: IUser): Promise<void> {
-    const items = RepositoryUsersMemory.items;
+    const items = RepositoryMemoryAdapter.items;
     const userExists = await this.findByEmail(user.email);
 
     if (userExists) {
@@ -15,7 +15,7 @@ export default class RepositoryUsersMemory {
   }
 
   async findByEmail(email: string): Promise<IUser | null> {
-    const items = RepositoryUsersMemory.items;
+    const items = RepositoryMemoryAdapter.items;
     return items.find((user) => user.email === email) ?? null;
   }
 }

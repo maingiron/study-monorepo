@@ -58,17 +58,11 @@ export default class TerminalUtil {
     await terminal.inputField({ echo: false }).promise;
   }
 
-  static async sucessMessage(
-    text: string,
-    breakLine: boolean = true,
-  ): Promise<void> {
+  static async sucess(text: string, breakLine: boolean = true): Promise<void> {
     terminal.green((breakLine ? `\n` : '') + text);
   }
 
-  static async errorMessage(
-    text: string,
-    breakLine: boolean = true,
-  ): Promise<void> {
+  static async error(text: string, breakLine: boolean = true): Promise<void> {
     terminal.red((breakLine ? `\n` : '') + text);
   }
 }
