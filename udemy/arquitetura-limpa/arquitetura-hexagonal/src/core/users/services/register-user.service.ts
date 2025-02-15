@@ -2,8 +2,8 @@ import IUseCase from '@/core/shared/use-case.inteface';
 import Errors from '@/core/shared/errors.enum';
 import Id from '@/core/shared/id';
 import IUser from '../models/user.interface';
-import RepositoryUserPort from '../port/repository-user.port';
-import ProviderPasswordCryptoPort from '../port/provider-password-crypto.port';
+import RepositoryUserPort from '../ports/repository-user.port';
+import ProviderPasswordCryptoPort from '../ports/provider-password-crypto.port';
 
 export default class RegisterUserService implements IUseCase<IUser, void> {
   constructor(

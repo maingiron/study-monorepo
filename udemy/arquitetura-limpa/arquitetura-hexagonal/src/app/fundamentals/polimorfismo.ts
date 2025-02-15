@@ -1,5 +1,5 @@
 import ICar from '@/core/fundamentals/car.interface';
-import TerminalUtil from '../util/terminal-util';
+import TerminalUtil from '../utils/terminal-util';
 import Ferrari from '@/core/fundamentals/ferrari';
 import Fusca from '@/core/fundamentals/fusca';
 

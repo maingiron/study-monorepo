@@ -1,5 +1,5 @@
 import race from '@/core/fundamentals/race';
-import TerminalUtil from '../util/terminal-util';
+import TerminalUtil from '../utils/terminal-util';
 import { terminal } from 'terminal-kit';
 import ICar from '@/core/fundamentals/car.interface';
 import Ferrari from '@/core/fundamentals/ferrari';

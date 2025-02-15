@@ -1,4 +1,4 @@
-import TerminalUtil from '@/app/util/terminal-util';
+import TerminalUtil from '@/app/utils/terminal-util';
 import menuFundamentals from './menu-fundamentals';
 import menuUsers from './menu-users';
 

@@ -1,4 +1,4 @@
-import ProviderPasswordCryptoPort from '@/core/users/port/provider-password-crypto.port';
+import ProviderPasswordCryptoPort from '@/core/users/ports/provider-password-crypto.port';
 
 export default class SpaceReversePasswordAdapter
   implements ProviderPasswordCryptoPort

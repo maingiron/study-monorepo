@@ -1,8 +1,8 @@
 import IUser from '@/core/users/models/user.interface';
-import TerminalUtil from '../util/terminal-util';
+import TerminalUtil from '../utils/terminal-util';
 import RegisterUserService from '@/core/users/services/register-user.service';
-import BcrypyPasswordAdapter from '@/adapter/auth/bcrypy-password.adapter';
-import RepositoryMemoryAdapter from '@/adapter/db/repository-memory.adapter';
+import BcrypyPasswordAdapter from '@/adapters/auth/bcrypy-password.adapter';
+import RepositoryMemoryAdapter from '@/adapters/db/repository-memory.adapter';
 
 export default async function registerUsers() {
   const { title, requiredField, sucess, waitEnter, error } = TerminalUtil;

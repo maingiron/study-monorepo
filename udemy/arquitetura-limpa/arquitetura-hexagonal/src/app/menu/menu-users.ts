@@ -1,4 +1,4 @@
-import TerminalUtil from '@/app/util/terminal-util';
+import TerminalUtil from '@/app/utils/terminal-util';
 import registerUsers from '../users/register-users';
 
 export default async function menuUsers() {
