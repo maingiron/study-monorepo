@@ -1,7 +1,7 @@
-const Errors = {
+const ErrorsEnum = {
   USER_ALREADY_EXISTS: 'USER_ALREADY_EXISTS',
   USER_NOT_FOUND: 'USER_NOT_FOUND',
   USER_PASSWORD_INVALID: 'USER_PASSWORD_INVALID',
 } as const;
 
-export default Errors;
+export default ErrorsEnum;

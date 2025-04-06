@@ -1,10 +1,10 @@
+import GetProductUseCase from '@/core/products/usecases/GetProductUseCase';
 import Express from 'express';
-import GetProductByIdService from '@/core/products/services/GetProductById';
 
-export default class GetProductByIdController {
+export default class GetProductController {
   constructor(
     server: Express,
-    useCase: GetProductByIdService,
+    useCase: GetProductUseCase,
     ...middlewares: any[]
   ) {
     server.get(

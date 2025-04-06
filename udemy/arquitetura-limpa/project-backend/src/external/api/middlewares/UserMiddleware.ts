@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import RepositoryMemoryAdapter from '../db/repository-memory.adapter';
-import JwtProvider from './JwtProvider';
-import IUser from '@/core/users/models/user.interface';
+import UserRepositoryMemoryAdapter from '../../db/UserRepositoryMemoryAdapter';
+import JwtProvider from '../jwt/JwtProvider';
+import IUser from '@/core/users/models/IUser';
 
-export default function UserMiddleware(repo: RepositoryMemoryAdapter) {
+export default function UserMiddleware(repo: UserRepositoryMemoryAdapter) {
   return async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.replace('Bearer ', '');
 
@@ -12,10 +12,10 @@ export default function UserMiddleware(repo: RepositoryMemoryAdapter) {
     }
 
     try {
-      const jwtProvider = new JwtProvider(process.env.JWT_SECRET!);
-      const userToken = jwtProvider.verify(token) as IUser;
+      const jwtProvider: JwtProvider = new JwtProvider(process.env.JWT_SECRET!);
+      const userToken: IUser = jwtProvider.verify(token) as IUser;
 
-      const user = await repo.findByEmail(userToken.email);
+      const user: IUser | null = await repo.findByEmail(userToken.email);
 
       if (!user) {
         return res.status(403).json({ error: 'Forbidden' });

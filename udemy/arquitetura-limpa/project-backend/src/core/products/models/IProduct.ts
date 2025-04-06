@@ -1,4 +1,4 @@
-import IUser from '@/core/users/models/user.interface';
+import IUser from '@/core/users/models/IUser';
 
 export default interface IProduct {
   id: string;

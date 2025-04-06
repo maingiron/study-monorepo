@@ -1,14 +1,14 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import RepositoryMemoryAdapter from './external/db/repository-memory.adapter';
-import BcrypyPasswordAdapter from './external/auth/bcrypy-password.adapter';
-import RegisterUserService from './core/users/services/register-user.service';
+import UserRepositoryMemoryAdapter from './external/db/UserRepositoryMemoryAdapter';
+import BcryptPasswordAdapter from './external/auth/BcryptPasswordAdapter';
 import RegisterUserController from './external/api/RegisterUserController';
-import LoginUserService from './core/users/services/login-user.service';
 import LoginUserController from './external/api/LoginUserController';
-import GetProductByIdController from './external/api/GetProductByIdController';
-import GetProductByIdService from './core/products/services/GetProductById';
-import UserMiddleware from './external/api/UserMiddleware';
+import RegisterUserUseCase from './core/users/usecases/RegisterUserUseCase';
+import LoginUserUseCase from './core/users/usecases/LoginUserUseCase';
+import GetProductUseCase from './core/products/usecases/GetProductUseCase';
+import GetProductController from './external/api/GetProductController';
+import UserMiddleware from './external/api/middlewares/UserMiddleware';
 
 dotenv.config();
 
@@ -23,16 +23,19 @@ app.listen(port, () => {
 });
 
 // routes no auth
-const repositoryUser = new RepositoryMemoryAdapter();
-const provedorCripto = new BcrypyPasswordAdapter();
+const repositoryUser = new UserRepositoryMemoryAdapter();
+const provedorCripto = new BcryptPasswordAdapter();
 
-const registrarUser = new RegisterUserService(repositoryUser, provedorCripto);
-new RegisterUserController(app, registrarUser);
+const registerUserUseCase = new RegisterUserUseCase(
+  repositoryUser,
+  provedorCripto,
+);
+new RegisterUserController(app, registerUserUseCase);
 
-const loginUser = new LoginUserService(repositoryUser, provedorCripto);
-new LoginUserController(app, loginUser);
+const loginUserUseCase = new LoginUserUseCase(repositoryUser, provedorCripto);
+new LoginUserController(app, loginUserUseCase);
 
 // routes auth
-const getProductById = new GetProductByIdService();
+const getProductUseCase = new GetProductUseCase();
 const middleware = UserMiddleware(repositoryUser);
-new GetProductByIdController(app, getProductById, middleware);
+new GetProductController(app, getProductUseCase, middleware);
