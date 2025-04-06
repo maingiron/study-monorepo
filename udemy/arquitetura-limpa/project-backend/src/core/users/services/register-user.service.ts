@@ -11,7 +11,7 @@ export default class RegisterUserService implements IUseCase<IUser, void> {
     private provider: ProviderPasswordCryptoPort,
   ) {}
 
-  async execute(user: IUser): Promise<void> {
+  async execute(user: IUser): Promise<IUser> {
     const criptoPassword = await this.provider.encrypt(user.password);
 
     const userExists = await this.repo.findByEmail(user.email);
@@ -30,5 +30,7 @@ export default class RegisterUserService implements IUseCase<IUser, void> {
     this.repo.insert(newUser);
 
     console.log(`\n\n${JSON.stringify(newUser)}\n\n`);
+
+    return newUser;
   }
 }

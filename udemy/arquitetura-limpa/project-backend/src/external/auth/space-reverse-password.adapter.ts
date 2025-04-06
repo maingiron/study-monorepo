@@ -6,4 +6,8 @@ export default class SpaceReversePasswordAdapter
   async encrypt(password: string): Promise<string> {
     return password.split('').reverse().join(' ');
   }
+
+  async compare(password: string, hash: string): Promise<boolean> {
+    return (await this.encrypt(password)) === hash;
+  }
 }

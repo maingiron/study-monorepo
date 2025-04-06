@@ -3,4 +3,5 @@
 // Neste caso, está interface define um contrato que deve ser implementado por um adaptador que criptografa uma senha.
 export default interface ProviderPasswordCryptoPort {
   encrypt(password: string): Promise<string>;
+  compare(password: string, hash: string): Promise<boolean>;
 }
