@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: kotlin-hexagonal
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: root
+      password: example
+      database: kotlin-hexagonal
+
+example:
+  client:
+    address:
+      url: http://localhost:8082/addresses
