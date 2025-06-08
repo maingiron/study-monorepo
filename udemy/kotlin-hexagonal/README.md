@@ -47,6 +47,17 @@ show collections;
 
 ---
 
+## 🔍 Verificando os dados no MongoDB
+
+Acesse novamente o container do MongoDB (como descrito acima) e, no shell do Mongo, execute:
+
+```mongodb
+use kotlin-hexagonal
+db.customers.find();
+```
+
+---
+
 ## 📬 Testando a API
 
 ### Criar um novo cliente
@@ -63,15 +74,12 @@ curl --location 'http://localhost:8080/api/v1/customers' \
 }'
 ```
 
----
+### Buscar um cliente
 
-## 🔍 Verificando os dados no MongoDB
+Use o `curl` abaixo para buscar um cliente na aplicação, passando o seu ID:
 
-Acesse novamente o container do MongoDB (como descrito acima) e, no shell do Mongo, execute:
-
-```mongodb
-use kotlin-hexagonal
-db.customers.find();
+```bash
+curl --location 'http://localhost:8080/api/v1/customers/6845db3c905eba2ee4acd02a'
 ```
 
 ---

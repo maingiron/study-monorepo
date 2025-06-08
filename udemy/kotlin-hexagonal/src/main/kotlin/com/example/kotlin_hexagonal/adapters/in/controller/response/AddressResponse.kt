@@ -1,21 +1,15 @@
-package com.example.kotlin_hexagonal.adapters.out.repository.entity
+package com.example.kotlin_hexagonal.adapters.`in`.controller.response
 
 import com.example.kotlin_hexagonal.application.core.domain.Address
 
-data class AddressEntity(
+data class AddressResponse(
     val street: String,
     val city: String,
-    val state: String,
+    val state: String
 ) {
     constructor(address: Address): this(
         address.street,
         address.city,
         address.state
-    )
-
-    fun toAddress() = Address(
-        street,
-        city,
-        state
     )
 }

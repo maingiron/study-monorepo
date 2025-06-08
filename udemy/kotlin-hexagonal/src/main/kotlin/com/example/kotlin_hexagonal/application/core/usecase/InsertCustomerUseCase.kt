@@ -4,7 +4,6 @@ import com.example.kotlin_hexagonal.application.core.domain.Customer
 import com.example.kotlin_hexagonal.application.ports.`in`.InsertCustomerInputPort
 import com.example.kotlin_hexagonal.application.ports.out.FindAddressByZipCodeOutputPort
 import com.example.kotlin_hexagonal.application.ports.out.InsertCustomerOutputPort
-import java.time.ZonedDateTime
 
 class InsertCustomerUseCase(
     private val findAddressByZipCodeOutputPort: FindAddressByZipCodeOutputPort,
