@@ -15,6 +15,12 @@ docker-compose up -d
 
 Isso irá levantar os serviços do MongoDB e Mongo Express.
 
+### 2. Parando os containers
+
+```bash
+docker-compose down
+```
+
 ---
 
 ## 🛠️ Criando o banco de dados no MongoDB
