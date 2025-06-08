@@ -10,5 +10,5 @@ npm run dev
 
 Arquitetura Hexagonal === Porta e adaptadores
 
-Nome Design: Porta e adaptadores
-Nome Comercial: Arquitetura Hexagonal
+- Nome Design: Porta e adaptadores
+- Nome Comercial: Arquitetura Hexagonal
