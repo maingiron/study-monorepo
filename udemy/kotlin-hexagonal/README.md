@@ -140,6 +140,14 @@ curl --location --request PUT 'http://localhost:8080/api/v1/customers/6847063aad
 }'
 ```
 
+### Deletar um cliente
+
+Use o `curl` abaixo para deletar um cliente na aplicação, passando o seu ID:
+
+```bash
+curl --location --request DELETE 'http://localhost:8080/api/v1/customers/6847063aad78d753e248449b'
+```
+
 ---
 
 ## 🧪 Tecnologias utilizadas
