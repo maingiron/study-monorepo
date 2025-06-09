@@ -51,6 +51,8 @@ use kotlin-hexagonal
 show collections;
 ```
 
+Lembrar de criar um customer para criar a collection `customers` (utilizar o `curl` abaixo).
+
 ---
 
 ## 🔍 Verificando os dados no MongoDB
@@ -60,6 +62,36 @@ Acesse novamente o container do MongoDB (como descrito acima) e, no shell do Mon
 ```mongodb
 use kotlin-hexagonal
 db.customers.find();
+```
+
+---
+
+## 📒 Utilizando WireMock
+
+Foi utilizado o WireMock para realizar o mock de CEPs (zipCode). O mock default pode ser encontrado no arquivo `mappings/addresses.json`.
+
+Para criar um novo mock, podemos utilizar o `curl` abaixo:
+
+```
+curl --location 'http://localhost:8082/__admin/mappings' \
+--header 'Content-Type: application/json' \
+--data '{
+  "request": {
+    "method": "GET",
+    "url": "/addresses/38400001"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "street": "Rua Hexagonal Teste",
+      "city": "Uberlândia Teste",
+      "state": "Minas Gerais Teste"
+    }
+  }
+}'
 ```
 
 ---
@@ -88,6 +120,20 @@ Use o `curl` abaixo para buscar um cliente na aplicação, passando o seu ID:
 curl --location 'http://localhost:8080/api/v1/customers/6845db3c905eba2ee4acd02a'
 ```
 
+### Alterar um cliente
+
+Use o `curl` abaixo para alterar um cliente na aplicação, passando o seu ID:
+
+```bash
+curl --location --request PUT 'http://localhost:8080/api/v1/customers/6847063aad78d753e248449b' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Giron Giron",
+    "cpf": "99922233344",
+    "zipCode": "38400001"
+}'
+```
+
 ---
 
 ## 🧪 Tecnologias utilizadas
@@ -97,3 +143,4 @@ curl --location 'http://localhost:8080/api/v1/customers/6845db3c905eba2ee4acd02a
 - Docker / Docker Compose
 - Arquitetura Hexagonal
 - REST API
+- WireMock
