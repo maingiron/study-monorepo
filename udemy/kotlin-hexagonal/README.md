@@ -94,6 +94,12 @@ curl --location 'http://localhost:8082/__admin/mappings' \
 }'
 ```
 
+Para consultar todos os mocks diponíveis, podemos utilizar o `curl` abaixo:
+
+```
+curl --location 'http://localhost:8082/__admin/mappings'
+```
+
 ---
 
 ## 📬 Testando a API
