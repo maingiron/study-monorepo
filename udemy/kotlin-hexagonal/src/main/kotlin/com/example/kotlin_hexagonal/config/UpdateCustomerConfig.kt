@@ -1,6 +1,7 @@
 package com.example.kotlin_hexagonal.config
 
 import com.example.kotlin_hexagonal.adapters.out.FindAddressByZipCodeAdapter
+import com.example.kotlin_hexagonal.adapters.out.SendCpfForValidationAdapter
 import com.example.kotlin_hexagonal.adapters.out.UpdateCustomerAdapter
 import com.example.kotlin_hexagonal.application.core.usecase.FindCustomerByIdUseCase
 import com.example.kotlin_hexagonal.application.core.usecase.UpdateCustomerUseCase
@@ -14,12 +15,14 @@ class UpdateCustomerConfig {
     fun updateCustomer(
         findCustomerByIdUseCase: FindCustomerByIdUseCase,
         findAddressByZipCodeAdapter: FindAddressByZipCodeAdapter,
-        updateCustomerAdapter: UpdateCustomerAdapter
+        updateCustomerAdapter: UpdateCustomerAdapter,
+        sendCpfForValidationAdapter: SendCpfForValidationAdapter
     ): UpdateCustomerInputPort {
         return UpdateCustomerUseCase(
             findCustomerByIdUseCase,
             findAddressByZipCodeAdapter,
-            updateCustomerAdapter
+            updateCustomerAdapter,
+            sendCpfForValidationAdapter
         )
     }
 }
