@@ -9,7 +9,7 @@ class DeleteCustomerByIdUseCase(
     private val deleteCustomerOutputPort: DeleteCustomerOutputPort
 ): DeleteCustomerInputPort {
     override fun delete(id: String) {
-        // apenas para verificação de já existe na base
+        // se não achar, retorna erro
         findCustomerByIdInputPort.find(id)
 
         deleteCustomerOutputPort.delete(id)

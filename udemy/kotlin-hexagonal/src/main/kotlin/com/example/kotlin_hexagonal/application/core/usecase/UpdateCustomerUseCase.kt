@@ -18,7 +18,7 @@ class UpdateCustomerUseCase(
             throw IllegalArgumentException("O ID do customer não pode ser null.")
         }
 
-        // apenas para verificação de já existe na base
+        // se não achar, retorna erro
         val savedCpf = findCustomerByIdInputPort.find(customer.id).cpf
 
         customer.apply {
