@@ -1,7 +1,7 @@
 
 # Estudo - Kotlin (com arq. hexagonal)
 
-Este repositório é um projeto de estudos com Kotlin utilizando arquitetura hexagonal. O objetivo é praticar boas práticas de estrutura de software, integração com banco de dados MongoDB, e exposição de APIs REST.
+Este repositório é um projeto de estudos com Kotlin utilizando arquitetura hexagonal. O objetivo é praticar boas práticas de estrutura de software, integração com Kafka, banco de dados MongoDB, e exposição de APIs REST.
 
 ## 🚀 Como iniciar a aplicação
 
@@ -13,7 +13,7 @@ Certifique-se de que o Docker Desktop esteja rodando antes de continuar.
 docker-compose up -d
 ```
 
-Isso irá levantar os serviços do MongoDB e Mongo Express.
+Isso irá levantar os serviços do Kafka, ZooKeeper, Wiremoke, MongoDB e Mongo Express.
 
 ### 2. Parando os containers
 
@@ -158,3 +158,4 @@ curl --location --request DELETE 'http://localhost:8080/api/v1/customers/6847063
 - Arquitetura Hexagonal
 - REST API
 - WireMock
+- Kafka / ZooKeeper
