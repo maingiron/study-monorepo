@@ -9,8 +9,8 @@ fun main(args: Array<String>) {
 
     println(g1 == g2) // equals
 
-    val tv1 = Televisao("Sansung", 32)
-    val tv2 = Televisao("Sansung", 32)
+    val tv1 = Televisao("Samsung", 32)
+    val tv2 = Televisao("Samsung", 32)
 
     println(tv1 == tv2) // equals
     println(tv1 === tv2)
