@@ -18,6 +18,9 @@ class ProducerController(
 
     @PostMapping("/produce")
     fun produce(@RequestBody person: Person): ResponseEntity<String> {
+        val testeVar = System.getenv("TESTE_VAR")
+        println("Valor da variável de ambiente TESTE_VAR: $testeVar")
+
         return try {
             producerService.sendMessage(person)
             ResponseEntity.ok("Mensagem enviada com sucesso!")
