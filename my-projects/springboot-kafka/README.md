@@ -22,6 +22,17 @@ Após subir o ambiente, acesse a interface web do Kafka UI em:
 http://localhost:8080
 ```
 
+## cURL para enviar mensagem
+
+```
+curl --location 'http://localhost:8081/v1/produce' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Optimus Prime",
+    "age": 81
+}'
+```
+
 ## Configurações importantes
 
 - O Kafka é acessível pelos serviços via o nome `kafka:9092` (dentro do Docker).
