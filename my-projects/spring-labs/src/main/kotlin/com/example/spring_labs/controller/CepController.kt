@@ -1,6 +1,7 @@
 package com.example.spring_labs.controller
 
 import com.example.spring_labs.service.CepService
+import com.example.spring_labs.service.dto.CepDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -21,7 +22,7 @@ class CepController(
     fun getCep(
         @Parameter(description = "CEP com 8 dígitos numéricos.", example = "01001000")
         @PathVariable cep: String
-        ): String {
+        ): CepDto {
         return cepService.getCep(cep)
     }
 }
