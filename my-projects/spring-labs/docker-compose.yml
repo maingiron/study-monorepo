@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    container_name: spring-labs
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
