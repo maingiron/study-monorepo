@@ -52,3 +52,17 @@ GET /v1/cep/{cep}
 ```
 
 Testezin usando o Feign Client + extension no retorno do response!
+
+### Lab 003 - String Builder
+
+```bash
+GET /v1/string-builder/yes-baby
+GET /v1/string-builder/no
+```
+
+Teste com String Builder para ver a diferença de performance!
+
+Em 100.000, deu:
+
+- Com SB: 13ms
+- Sem SB: 6126ms -> loucura, loucura, loucura!
