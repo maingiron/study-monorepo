@@ -34,3 +34,21 @@ docker-compose up -d
 - Java (JDK) instalado
 - Maven (para executar localmente)
 - Docker e Docker Compose (opcional, para rodar via container)
+
+# 🔥 Labs realizados
+
+### Lab 001 - Hello world
+
+```bash
+GET /hello
+```
+
+Tá gostando do rolé!? Carro nervoso, né? É o clássico, das antigas... Dojão americano!
+
+### Lab 002 - Feign Client no ViaCep + Extension
+
+```bash
+GET /v1/cep/{cep}
+```
+
+Testezin usando o Feign Client + extension no retorno do response!
