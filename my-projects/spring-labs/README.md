@@ -29,6 +29,12 @@ docker-compose up -d
 
 - UI do Swagger: http://localhost:8080/swagger-ui/index.html
 
+## 🧪 Rodar os teste com Coverage (Jacoco)
+
+```bash
+mvn verify
+```
+
 # 🧩 Requisitos
 
 - Java (JDK) instalado

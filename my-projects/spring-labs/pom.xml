@@ -113,17 +113,18 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<!-- JaCoCo plugin for coverage reporting -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.7</version> <!-- Use the latest stable version -->
+				<version>0.8.14</version>
 				<executions>
+					<!-- Executa o agente antes dos testes -->
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
+					<!-- Gera o relatório após os testes -->
 					<execution>
 						<id>report</id>
 						<phase>verify</phase>
