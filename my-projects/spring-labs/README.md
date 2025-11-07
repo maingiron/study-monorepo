@@ -25,15 +25,14 @@ mvn spring-boot:run
 docker-compose up -d
 ```
 
-## 📜 Documentação da API
-
-- UI do Swagger: http://localhost:8080/swagger-ui/index.html
-
-## 🧪 Rodar os teste com Coverage (Jacoco)
-
+#### Rodar testes com Coverage (Jacoco)
 ```bash
 mvn verify
 ```
+
+## 📜 Documentação da API
+
+- UI do Swagger: http://localhost:8080/swagger-ui/index.html
 
 # 🧩 Requisitos
 
