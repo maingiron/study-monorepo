@@ -44,7 +44,7 @@ class CepControllerIntegrationTest {
         whenever(viaCepClient.getCep("01001000")).thenReturn(cepResponse)
 
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/cep/01001000"))
-            .andExpect(MockMvcResultMatchers.status().isOk)
+            .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.jsonPath("$.greetingCep").value("CEP 01001-000 encontrado na Unidade Federativa SP."))
     }

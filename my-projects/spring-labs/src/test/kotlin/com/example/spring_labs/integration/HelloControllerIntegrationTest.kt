@@ -18,7 +18,7 @@ class HelloControllerIntegrationTest {
     @Test
     fun `should return hello message`() {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/hello"))
-            .andExpect(MockMvcResultMatchers.status().isOk)
+            .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().string("Hello, World!"))
     }
 }
