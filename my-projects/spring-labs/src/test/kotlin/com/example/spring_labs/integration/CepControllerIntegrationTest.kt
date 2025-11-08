@@ -1,4 +1,4 @@
-package com.example.spring_labs
+package com.example.spring_labs.integration
 
 import com.example.spring_labs.client.ViaCepClient
 import com.example.spring_labs.client.response.CepResponse
@@ -10,10 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -45,9 +43,9 @@ class CepControllerIntegrationTest {
 
         whenever(viaCepClient.getCep("01001000")).thenReturn(cepResponse)
 
-        mockMvc.perform(get("/v1/cep/01001000"))
-            .andExpect(status().isOk)
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.greetingCep").value("CEP 01001-000 encontrado na Unidade Federativa SP."))
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/cep/01001000"))
+            .andExpect(MockMvcResultMatchers.status().isOk)
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.greetingCep").value("CEP 01001-000 encontrado na Unidade Federativa SP."))
     }
 }
